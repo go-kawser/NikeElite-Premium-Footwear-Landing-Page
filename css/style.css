@@ -1,0 +1,65 @@
+/* -----------------------------------
+CSS Customize Start 
+-------------------------------------*/
+.body-background {
+    color: #FFFFFF;
+}
+
+.top-banner-custom {
+    background-color: #FFF9F4;
+}
+
+.banner-title {
+    color: #FA804C;
+    font-weight: 700;
+    font-size: 80px;
+}
+
+.banner-title1 {
+    color: #363958;
+    font-weight: 700;
+    font-size: 80px;
+}
+
+.navigation {
+    color: #3C3C3C;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card-info {
+    background-color: #F1F1F1;
+    border-radius: 9px;
+    padding: 20px;
+}
+
+.btn-custom {
+    background-color: #3D4FF3;
+    padding: 5px 10px;
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 2px solid #3D4FF3;
+}
+
+button:hover {
+    padding: 6px 12px;
+}
+
+.shopping-icon {
+    margin-right: 8px;
+}
+
+.price-title {
+    color: #000000;
+    font-weight: 600;
+}
+
+.price {
+    color: hotpink;
+    font-weight: 660;
+}
+
+/* -----------------------------------
+CSS Customize End 
+-------------------------------------*/
