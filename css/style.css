@@ -16,10 +16,9 @@
 }
 
 .price {
-  color: #fa804c; /* Retained from original */
+  color: #fa804c;
 }
 
-/* Additional Animations if needed beyond Tailwind */
 @keyframes customSpin {
   from {
     transform: rotate(0deg);
