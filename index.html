@@ -1,228 +1,1055 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nike Elite - Premium Footwear Store</title>
+    <!-- DaisyUI CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config for Animations -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 1s ease-in-out",
+              "bounce-in": "bounceIn 0.5s",
+              "spin-slow": "spin 3s linear infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              bounceIn: {
+                "0%": { transform: "scale(0.9)", opacity: "0" },
+                "50%": { transform: "scale(1.05)", opacity: "1" },
+                "100%": { transform: "scale(1)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Font Awesome for Icons -->
+    <script
+      src="https://kit.fontawesome.com/4ee108a205.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-base-100 min-h-screen">
+    <!-- Mega Navbar -->
+    <div class="navbar bg-base-100 shadow-xl fixed top-0 z-50">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li><a href="#">Home</a></li>
+            <li>
+              <a>Products</a>
+              <ul class="p-2 grid grid-cols-2 gap-2">
+                <li><a>Casual Shoes</a></li>
+                <li><a>Formal Shoes</a></li>
+                <li><a>Sneakers</a></li>
+                <li><a>Running</a></li>
+                <li><a>Basketball</a></li>
+                <li><a>Accessories</a></li>
+              </ul>
+            </li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost text-xl">
+          <img src="icons/Logo.png" alt="Nike Elite Logo" class="w-32" />
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="#">Home</a></li>
+          <li>
+            <details>
+              <summary>Products</summary>
+              <ul
+                class="p-4 w-96 bg-base-100 rounded-box shadow-lg grid grid-cols-3 gap-4"
+              >
+                <li class="col-span-1">
+                  <a class="font-bold">Casual</a>
+                  <ul>
+                    <li><a>Sneakers</a></li>
+                    <li><a>Skate Shoes</a></li>
+                    <li><a>Toppers</a></li>
+                  </ul>
+                </li>
+                <li class="col-span-1">
+                  <a class="font-bold">Formal</a>
+                  <ul>
+                    <li><a>Leather</a></li>
+                    <li><a>Business</a></li>
+                    <li><a>Dress Shoes</a></li>
+                  </ul>
+                </li>
+                <li class="col-span-1">
+                  <a class="font-bold">Sports</a>
+                  <ul>
+                    <li><a>Running</a></li>
+                    <li><a>Basketball</a></li>
+                    <li><a>Training</a></li>
+                  </ul>
+                </li>
+                <li class="col-span-3 bg-base-200 p-2 rounded">
+                  <a class="text-center block">View All Products</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <div class="form-control">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered w-24 md:w-auto"
+          />
+        </div>
+        <a class="btn btn-ghost">
+          <i class="fas fa-cart-shopping"></i>
+        </a>
+        <!-- Theme Switcher -->
+        <select id="theme-switcher" class="select select-bordered ml-2">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="cupcake">Cupcake</option>
+          <option value="bumblebee">Bumblebee</option>
+          <option value="emerald">Emerald</option>
+        </select>
+      </div>
+    </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eNike.com</title>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/4ee108a205.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap CSS Link -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <!-- CSS Customize   -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body class="body-backgorund">
-  <!-- header start -->
-  <header class="top-banner-custom">
-    <!-- nav section start -->
-    <section class="container py-4">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="icons/Logo.png" alt="Bootstrap" width="290" height="40">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <!-- Hero Banner Carousel -->
+    <div class="carousel w-full mt-16">
+      <div id="slide1" class="carousel-item relative w-full">
+        <img
+          src="https://www.shutterstock.com/image-photo/leesburg-virginia-usa-march-8-260nw-2272274103.jpg"
+          class="w-full h-96 object-cover"
+          alt="Nike Banner 1"
+        />
+        <div
+          class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <a href="#slide3" class="btn btn-circle">❮</a>
+          <a href="#slide2" class="btn btn-circle">❯</a>
+        </div>
+        <div class="absolute top-1/4 left-10 text-white animate-fade-in">
+          <h1 class="text-6xl font-bold">Nike React Infinity Run</h1>
+          <p class="text-2xl">Experience ultimate comfort and style.</p>
+          <button
+            class="btn btn-primary mt-4 transition duration-300 hover:scale-105"
+          >
+            <i class="fas fa-cart-shopping mr-2"></i>Buy Now
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navigation">
-              <li class="nav-item me-5">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item me-5">
-                <a class="nav-link active" href="#">Product</a>
-              </li>
-              <li class="nav-item me-5">
-                <a class="nav-link active" href="#">About us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Contact us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </section>
-    <!-- nav section end -->
-    <!-- banner section start -->
-    <section class="container pb-5">
-      <div class="row d-flex align-items-center gx-5">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-          <img src="images/banner.png" class="img-fluid" alt="">
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 pt-5">
-          <h1>
-            <span class="banner-title">Nike React</span>
-            <br>
-            <span class="banner-title1">Infinity Run 2</span>
-          </h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla possimus aperiam ipsum ea ullam
-            eveniet delectus aut illo architecto rem.</p>
-          <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
         </div>
       </div>
-    </section>
-    <!-- banner section end -->
-  </header>
-  <!-- header end -->
-  <!-- CASUAL SHOES Section -->
-  <section class="container py-5">
-    <h2 class="price-title">CASUAL SHOES</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col">
-        <div class="card h-100 border border-0 rounded-3 p-3 shadow-lg">
-          <div class="card-info">
-            <img src="images/shoe-1.png" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Sneakers Skate Shoe</h5>
-            <p class="card-text">This is a wider card with supporting text additional content. This content is a little
-              bit longer.</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h2 class="price">$333</h2>
-            <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
-          </div>
+      <div id="slide2" class="carousel-item relative w-full">
+        <img
+          src="https://cdn.freebiesupply.com/images/large/1x/nike-poster-template-i22.jpg"
+          class="w-full h-96 object-cover"
+          alt="Nike Banner 2"
+        />
+        <div
+          class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <a href="#slide1" class="btn btn-circle">❮</a>
+          <a href="#slide3" class="btn btn-circle">❯</a>
+        </div>
+        <div class="absolute top-1/4 left-10 text-white animate-fade-in">
+          <h1 class="text-6xl font-bold">New Arrivals</h1>
+          <p class="text-2xl">Fresh styles for every step.</p>
+          <button
+            class="btn btn-primary mt-4 transition duration-300 hover:scale-105"
+          >
+            <i class="fas fa-cart-shopping mr-2"></i>Shop Now
+          </button>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100 border border-0 rounded-3 p-3 shadow-lg">
-          <div class="card-info">
-            <img src="images/shoe-2.png" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Topper shoe</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h2 class="price">$333</h2>
-            <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
-          </div>
+      <div id="slide3" class="carousel-item relative w-full">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNXKe3GTbcjdqvX9YlFOBE0tAB-l5MnoT_D7zyXqOmuzm3fX57Url44VlGJIUXr3YbEeWBBh95DBAOdbrwTdkzPZfqnA8M_ueN7uazMv4SCUhcf8entgJrIv_u-hsPGG_ZuVd8KKbI5Zr0oli-40C0BQm5sj7uN6kE_d7I-Cg-YWOO9Hrc0t6i7ktb/s1920/shoe%20banner%20by%20lincungstock.jpg"
+          class="w-full h-96 object-cover"
+          alt="Nike Banner 3"
+        />
+        <div
+          class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <a href="#slide2" class="btn btn-circle">❮</a>
+          <a href="#slide1" class="btn btn-circle">❯</a>
+        </div>
+        <div class="absolute top-1/4 left-10 text-white animate-fade-in">
+          <h1 class="text-6xl font-bold">Sale On!</h1>
+          <p class="text-2xl">Up to 50% off selected items.</p>
+          <button
+            class="btn btn-primary mt-4 transition duration-300 hover:scale-105"
+          >
+            <i class="fas fa-cart-shopping mr-2"></i>Explore Sale
+          </button>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100 border border-0 rounded-3 p-3 shadow-lg">
-          <div class="card-info">
-            <img src="images/shoe-3.png" class="card-img-top" alt="...">
-          </div>
+    </div>
+
+    <!-- Casual Shoes Section -->
+    <section id="casual" class="container mx-auto py-10 animate-fade-in">
+      <h2 class="text-4xl font-bold text-center mb-8">Casual Shoes</h2>
+      <!-- Filters -->
+      <div class="flex justify-center mb-6">
+        <select id="casual-filter" class="select select-bordered">
+          <option>Filter by Price</option>
+          <option>Under $200</option>
+          <option>$200-$400</option>
+          <option>Over $400</option>
+        </select>
+        <select class="select select-bordered ml-4">
+          <option>Filter by Color</option>
+          <option>Black</option>
+          <option>White</option>
+          <option>Red</option>
+        </select>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- Product Card 1 -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="333"
+          data-color="red"
+        >
+          <figure>
+            <img
+              src="images/shoe-1.png"
+              alt="Sneakers Skate Shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
           <div class="card-body">
-            <h5 class="card-title">Sneakers Basketball shoe</h5>
-            <p class="card-text">This is a wider card with supporting content.Longer to show that equal height action.
+            <h2 class="card-title">Sneakers Skate Shoe</h2>
+            <p>This is a wider card with supporting text additional content.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$333</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="299"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="images/shoe-2.png"
+              alt="Topper shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Topper Shoe</h2>
+            <p>
+              Supporting text below as a natural lead-in to additional content.
             </p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h2 class="price">$333</h2>
-            <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Formal Shoes Section -->
-  <section class="container py-5">
-    <h2 class="price-title">Formal shoes</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col">
-        <div class="card h-100 border border-0 p-3">
-          <div class="">
-            <img src="images/black-shoe-1.png" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Sneakers Skate Shoe</h5>
-            <p class="card-text">This is a wider card with supporting text additional content. This content is a little
-              bit longer.</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h2 class="price">$333</h2>
-            <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$299</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 border border-0 p-3">
-          <div class="">
-            <img src="images/black-shoe-2.png" class="card-img-top" alt="...">
-          </div>
+        <!-- Product Card 3 -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="350"
+          data-color="white"
+        >
+          <figure>
+            <img
+              src="images/shoe-3.png"
+              alt="Sneakers Basketball shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
           <div class="card-body">
-            <h5 class="card-title">Topper shoe</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h2 class="price">$333</h2>
-            <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 border border-0 p-3">
-          <div class="">
-            <img src="images/black-shoe-3.png" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Sneakers Basketball shoe</h5>
-            <p class="card-text">This is a wider card with supporting content.Longer to show that equal height action.
+            <h2 class="card-title">Sneakers Basketball Shoe</h2>
+            <p>
+              Wider card with supporting content. Longer to show equal height.
             </p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h2 class="price">$333</h2>
-            <button class="btn-custom"><i class="fa-solid shopping-icon fa-cart-shopping"></i>BYE NOW</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Formal Shoes Section -->
-
-  <!-- our benefit section start -->
-  <section class="container py-5">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="row gap-3">
-          <div class="d-flex align-items-center justify-content-center shadow-lg rounded-3">
-            <img src="icons/home.png" class="img-fluid" width="80" height="80" alt="">
-            <div class="ms-3">
-              <h3>Find the Perfect Fit</h3>
-              <p>Everybody is different, which is why we
-                offer styles for every body.</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center justify-content-center shadow-lg rounded-3">
-            <img src="icons/data.png" class="img-fluid" width="80" height="80" alt="">
-            <div class="ms-3">
-              <h3>Free Exchanges</h3>
-              <p>Everybody is different, which is why we
-                offer styles for every body.</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center justify-content-center shadow-lg rounded-3">
-            <img src="icons/hadphoe.png" class="img-fluid" width="80" height="80" alt="">
-            <div class="ms-3">
-              <h3>Find the our Headphone</h3>
-              <p>Everybody is different, which is why we
-                offer styles for every body.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$350</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
             </div>
           </div>
         </div>
+        <!-- Additional Cards (repeat pattern for length) -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="280"
+          data-color="red"
+        >
+          <figure>
+            <img
+              src="https://slimages.macysassets.com/is/image/MCY/products/7/optimized/26278417_fpx.tif"
+              alt="Court Vision Low"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Court Vision Low</h2>
+            <p>Classic casual sneaker for everyday wear.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$280</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="320"
+          data-color="grey"
+        >
+          <figure>
+            <img
+              src="https://www.famousfootwear.com/blob/product-images/20000/43/70/9/43709_pair_feed1000.jpg"
+              alt="Big Nike Sneaker"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Big Nike Sneaker</h2>
+            <p>Comfortable and stylish for casual outings.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$320</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="340"
+          data-color="white"
+        >
+          <figure>
+            <img
+              src="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/26378138_fpx.tif"
+              alt="Air Max Excee"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Air Max Excee</h2>
+            <p>Iconic design with modern comfort.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$340</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="310"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="https://m.media-amazon.com/images/I/61YXOu+7-dL._UY900_.jpg"
+              alt="Low-Top Sneakers"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Low-Top Sneakers</h2>
+            <p>Versatile for casual and sporty looks.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$310</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="360"
+          data-color="beige"
+        >
+          <figure>
+            <img
+              src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/abbc2d6e-05e7-4c9c-9060-3bbd090a1136/NIKE+ZOOM+VOMERO+5+SE.png"
+              alt="Zoom Vomero"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Zoom Vomero</h2>
+            <p>Premium cushioning for all-day wear.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$360</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- More cards to extend... (add 4 more similar for 12 total) -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="290"
+          data-color="red"
+        >
+          <figure>
+            <img
+              src="images/shoe-1.png"
+              alt="Duplicate for extension"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Skate Shoe</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$290</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="330"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="images/shoe-2.png"
+              alt="Extended Topper"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Topper</h2>
+            <p>
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$330</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="370"
+          data-color="white"
+        >
+          <figure>
+            <img
+              src="images/shoe-3.png"
+              alt="Extended Basketball"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Basketball Shoe</h2>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$370</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="300"
+          data-color="grey"
+        >
+          <figure>
+            <img
+              src="https://slimages.macysassets.com/is/image/MCY/products/7/optimized/26278417_fpx.tif"
+              alt="Extended Court"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Court Vision</h2>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse.
+            </p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$300</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6 pt-4 pb-5">
-        <img src="icons/kawser.png" class="img-fluid" alt="">
+    </section>
+
+    <!-- Formal Shoes Section -->
+    <section
+      id="formal"
+      class="container mx-auto py-10 bg-base-200 animate-fade-in"
+    >
+      <h2 class="text-4xl font-bold text-center mb-8">Formal Shoes</h2>
+      <!-- Filters -->
+      <div class="flex justify-center mb-6">
+        <select id="formal-filter" class="select select-bordered">
+          <option>Filter by Price</option>
+          <option>Under $200</option>
+          <option>$200-$400</option>
+          <option>Over $400</option>
+        </select>
+        <select class="select select-bordered ml-4">
+          <option>Filter by Color</option>
+          <option>Black</option>
+          <option>Brown</option>
+          <option>Grey</option>
+        </select>
       </div>
-    </div>
-  </section>
-  <!-- our benefit section end -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- Formal Card 1 -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="333"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="images/black-shoe-1.png"
+              alt="Sneakers Skate Shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Formal Leather Shoe 1</h2>
+            <p>Elegant design for professional settings.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$333</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Formal Card 2 -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="350"
+          data-color="brown"
+        >
+          <figure>
+            <img
+              src="images/black-shoe-2.png"
+              alt="Topper shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Formal Leather Shoe 2</h2>
+            <p>Premium leather for lasting comfort.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$350</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Formal Card 3 -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="320"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="images/black-shoe-3.png"
+              alt="Sneakers Basketball shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Formal Leather Shoe 3</h2>
+            <p>Classic style with modern twist.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$320</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Additional Formal Cards -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="360"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="https://slimages.macysassets.com/is/image/MCY/products/7/optimized/30562877_fpx.tif"
+              alt="Dress Shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Classic Dress Shoe</h2>
+            <p>Sophisticated for business meetings.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$360</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="340"
+          data-color="brown"
+        >
+          <figure>
+            <img
+              src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c874d35-0472-4cea-a493-4955673aaab2/NK+SB+ZOOM+JANOSKI+SLIP+NBY.png"
+              alt="Leather Slip-On"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Leather Slip-On</h2>
+            <p>Easy wear for formal occasions.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$340</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="380"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="https://preview.redd.it/choosing-shoes-for-my-formal-party-v0-j5fjibwpy83c1.jpg?width=640&crop=smart&auto=webp&s=77da6de6e736a8ce4f512f2a67dad2ef7d42cd12"
+              alt="Formal Party Shoe"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Formal Party Shoe</h2>
+            <p>Stylish for events and gatherings.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$380</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="310"
+          data-color="grey"
+        >
+          <figure>
+            <img
+              src="https://hips.hearstapps.com/hmg-prod/images/mh-4-15-nikes-661d7e1ad48c3.jpg?crop=0.502xw:1.00xh;0,0&resize=640:*"
+              alt="Versatile Formal"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Versatile Formal Shoe</h2>
+            <p>Perfect for office and evenings.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$310</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="390"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/87c6a155-92b2-4666-af77-031eacbc7fab/NIKE+AIR+MAX+1+ESS.png"
+              alt="Air Max Formal"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Air Max Formal Edition</h2>
+            <p>Comfort meets elegance.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$390</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- More formal cards... (add 4 more) -->
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="330"
+          data-color="brown"
+        >
+          <figure>
+            <img
+              src="images/black-shoe-1.png"
+              alt="Extended Formal 1"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Formal Shoe 1</h2>
+            <p>Cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$330</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="370"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="images/black-shoe-2.png"
+              alt="Extended Formal 2"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Formal Shoe 2</h2>
+            <p>Excepteur sint occaecat cupidatat non proident.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$370</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="350"
+          data-color="grey"
+        >
+          <figure>
+            <img
+              src="images/black-shoe-3.png"
+              alt="Extended Formal 3"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Formal Shoe 3</h2>
+            <p>
+              Sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$350</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
+          data-price="400"
+          data-color="black"
+        >
+          <figure>
+            <img
+              src="https://slimages.macysassets.com/is/image/MCY/products/7/optimized/30562877_fpx.tif"
+              alt="Extended Formal 4"
+              class="w-full h-48 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Extended Formal Shoe 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="card-actions justify-between">
+              <h3 class="text-2xl font-bold text-primary">$400</h3>
+              <button class="btn btn-primary">
+                <i class="fas fa-cart-shopping mr-2"></i>Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- script js -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-  <!-- script js end -->
-  <!-- Thank you -->
-</body>
+    <!-- Benefits Section -->
+    <section class="container mx-auto py-10 animate-bounce-in">
+      <h2 class="text-4xl font-bold text-center mb-8">Our Benefits</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="card bg-base-100 shadow-xl flex items-center p-6 transition duration-300 hover:scale-105"
+        >
+          <img
+            src="https://www.shutterstock.com/image-vector/ecommerce-security-badges-riskfree-shopping-260nw-1423573472.jpg"
+            alt="Free Shipping"
+            class="w-20 h-20 mb-4"
+          />
+          <div>
+            <h3 class="text-2xl font-bold">Free Shipping</h3>
+            <p>On all orders over $50. Fast and reliable delivery.</p>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl flex items-center p-6 transition duration-300 hover:scale-105"
+        >
+          <img
+            src="https://www.shutterstock.com/image-vector/trustworthy-ecommerce-concepts-free-shipping-600w-2348124171.jpg"
+            alt="Easy Returns"
+            class="w-20 h-20 mb-4"
+          />
+          <div>
+            <h3 class="text-2xl font-bold">Easy Returns</h3>
+            <p>30-day return policy with no questions asked.</p>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl flex items-center p-6 transition duration-300 hover:scale-105"
+        >
+          <img
+            src="https://c8.alamy.com/comp/2RMFACF/e-commerce-confidence-icons-free-shipping-easy-returns-money-back-guarantee-satisfaction-guarantee-secure-checkout-and-warranty-2RMFACF.jpg"
+            alt="Secure Checkout"
+            class="w-20 h-20 mb-4"
+          />
+          <div>
+            <h3 class="text-2xl font-bold">Secure Checkout</h3>
+            <p>Protected payments with top-tier encryption.</p>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl flex items-center p-6 transition duration-300 hover:scale-105"
+        >
+          <img
+            src="https://thumbs.dreamstime.com/b/free-easy-returns-badge-gold-box-icon-black-background-vector-illustration-394048127.jpg"
+            alt="Money Back"
+            class="w-20 h-20 mb-4"
+          />
+          <div>
+            <h3 class="text-2xl font-bold">Money Back Guarantee</h3>
+            <p>Full refund if not satisfied.</p>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl flex items-center p-6 transition duration-300 hover:scale-105"
+        >
+          <img
+            src="https://l450v.alamy.com/450v/2rmfacb/e-commerce-confidence-icons-free-shipping-easy-returns-money-back-guarantee-satisfaction-guarantee-secure-checkout-and-warranty-2rmfacb.jpg"
+            alt="Satisfaction"
+            class="w-20 h-20 mb-4"
+          />
+          <div>
+            <h3 class="text-2xl font-bold">Satisfaction Guarantee</h3>
+            <p>We stand by our products 100%.</p>
+          </div>
+        </div>
+        <div
+          class="card bg-base-100 shadow-xl flex items-center p-6 transition duration-300 hover:scale-105"
+        >
+          <img src="icons/home.png" alt="Perfect Fit" class="w-20 h-20 mb-4" />
+          <div>
+            <h3 class="text-2xl font-bold">Find the Perfect Fit</h3>
+            <p>Styles for every body type.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- About Us Section -->
+    <section id="about" class="container mx-auto py-10 bg-base-200">
+      <h2 class="text-4xl font-bold text-center mb-8">About Us</h2>
+      <p class="text-lg text-center mb-6">
+        Nike Elite is dedicated to providing premium footwear that combines
+        style, comfort, and performance. With years of experience, we curate the
+        best Nike products for our customers.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="prose">
+          <h3>Our Mission</h3>
+          <p>
+            To inspire and equip every individual with the perfect pair of shoes
+            for their lifestyle.
+          </p>
+          <h3>Our Values</h3>
+          <ul>
+            <li>Quality First</li>
+            <li>Customer Satisfaction</li>
+            <li>Innovation in Design</li>
+          </ul>
+        </div>
+        <img
+          src="icons/kawser.png"
+          alt="About Image"
+          class="w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto py-10">
+      <h2 class="text-4xl font-bold text-center mb-8">Contact Us</h2>
+      <form class="max-w-lg mx-auto">
+        <div class="form-control mb-4">
+          <label class="label">Name</label>
+          <input
+            type="text"
+            placeholder="Your Name"
+            class="input input-bordered"
+          />
+        </div>
+        <div class="form-control mb-4">
+          <label class="label">Email</label>
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="input input-bordered"
+          />
+        </div>
+        <div class="form-control mb-4">
+          <label class="label">Message</label>
+          <textarea
+            class="textarea textarea-bordered"
+            placeholder="Your Message"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">
+          Send Message
+        </button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-base-300 text-base-content">
+      <div>
+        <img src="icons/Logo.png" alt="Logo" class="w-32" />
+        <p>Nike Elite Shop<br />Premium Footwear Since 2022</p>
+      </div>
+      <div>
+        <span class="footer-title">Products</span>
+        <a class="link link-hover">Casual Shoes</a>
+        <a class="link link-hover">Formal Shoes</a>
+        <a class="link link-hover">Accessories</a>
+      </div>
+      <div>
+        <span class="footer-title">Company</span>
+        <a class="link link-hover" href="#about">About Us</a>
+        <a class="link link-hover" href="#contact">Contact</a>
+        <a class="link link-hover">Jobs</a>
+      </div>
+      <div>
+        <span class="footer-title">Legal</span>
+        <a class="link link-hover">Terms of Use</a>
+        <a class="link link-hover">Privacy Policy</a>
+        <a class="link link-hover">Cookie Policy</a>
+      </div>
+    </footer>
+
+    <!-- Vanilla JS for Theme Switcher and Filters -->
+    <script>
+      // Theme Switcher
+      const themeSwitcher = document.getElementById("theme-switcher");
+      const currentTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      themeSwitcher.value = currentTheme;
+
+      themeSwitcher.addEventListener("change", (e) => {
+        const newTheme = e.target.value;
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      });
+
+      // Product Filters (Casual)
+      const casualFilter = document.getElementById("casual-filter");
+      casualFilter.addEventListener("change", filterProducts("casual"));
+
+      function filterProducts(section) {
+        return (e) => {
+          const value = e.target.value;
+          const cards = document.querySelectorAll(`#${section} .card`);
+          cards.forEach((card) => {
+            let show = true;
+            if (value.includes("Under") && parseInt(card.dataset.price) >= 200)
+              show = false;
+            if (
+              value.includes("$200-$400") &&
+              (parseInt(card.dataset.price) < 200 ||
+                parseInt(card.dataset.price) > 400)
+            )
+              show = false;
+            if (value.includes("Over") && parseInt(card.dataset.price) <= 400)
+              show = false;
+            card.style.display = show ? "block" : "none";
+          });
+        };
+      }
+
+      // Similar for Formal
+      const formalFilter = document.getElementById("formal-filter");
+      formalFilter.addEventListener("change", filterProducts("formal"));
+
+      // Carousel JS (basic, for demo)
+      // Add more if needed, but DaisyUI carousel is static; use libraries for auto-slide if required.
+    </script>
+  </body>
 </html>
