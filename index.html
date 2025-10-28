@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nike Elite - Premium Footwear Store</title>
+    <title>Nike Elite | Premium Footwear Store</title>
     <!-- DaisyUI CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css"
@@ -12,7 +12,7 @@
     />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Tailwind Config for Animations -->
+    <!-- Script Custom Tailwind Config For Animations -->
     <script>
       tailwind.config = {
         theme: {
@@ -37,7 +37,7 @@
         },
       };
     </script>
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/4ee108a205.js"
       crossorigin="anonymous"
@@ -309,7 +309,7 @@
             </div>
           </div>
         </div>
-        <!-- next time i added more cards -->
+        <!-- next time i will add more cards -->
         <div
           class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
           data-price="280"
@@ -425,7 +425,7 @@
             </div>
           </div>
         </div>
-        <!-- next time i added more cards-->
+        <!-- next time i wii add more cards-->
         <div
           class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
           data-price="290"
@@ -737,7 +737,7 @@
             </div>
           </div>
         </div>
-        <!-- More formal cards... (add 4 more) -->
+        <!-- next time i will add more Formal cards -->
         <div
           class="card bg-base-100 shadow-xl transition duration-300 hover:scale-105 hover:rotate-1"
           data-price="330"
@@ -1005,9 +1005,8 @@
       </div>
     </footer>
 
-    <!-- Vanilla JS for Theme Switcher and Filters -->
+    <!-- Vanilla JavaScript-->
     <script>
-      // Theme Switcher
       const themeSwitcher = document.getElementById("theme-switcher");
       const currentTheme = localStorage.getItem("theme") || "light";
       document.documentElement.setAttribute("data-theme", currentTheme);
@@ -1019,7 +1018,6 @@
         localStorage.setItem("theme", newTheme);
       });
 
-      // Product Filters (Casual)
       const casualFilter = document.getElementById("casual-filter");
       casualFilter.addEventListener("change", filterProducts("casual"));
 
@@ -1044,7 +1042,6 @@
         };
       }
 
-      // Similar for Formal
       const formalFilter = document.getElementById("formal-filter");
       formalFilter.addEventListener("change", filterProducts("formal"));
     </script>
