@@ -91,8 +91,20 @@ If you open a pull request, please include a short description of your change an
 
 This project is provided as-is for portfolio/demo purposes. If you adapt or distribute it, include attribution.
 
-- **Maintainer:** Kawser420
+- **Maintainer:** go-kawser
 - **Find me on GitHub:** https://github.com/go-kawser
+
+- **Github Project Live Project Link:**
+- **Git Clone:**
+
+```
+ https://go-kawser.github.io/NikeElite-Premium-Footwear-Landing-Page/
+
+```
+
+```
+git clone https://github.com/go-kawser/NikeElite-Premium-Footwear-Landing-Page.git
+```
 
 ---
 
